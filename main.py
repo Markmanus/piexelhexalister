@@ -16,12 +16,21 @@ else:
 converter = PixelArtConverter(picture_paths)
 converter.convert_to_hex()
 
+# Set to hold all unique colors
+all_unique_colors = set()
+
 for i, pixels in enumerate(converter.pixel_data):
     unique_colors = set()
     for pixel in pixels:
         unique_colors.add(pixel['color'])
+        all_unique_colors.add(pixel['color'])
 
     print(f"Picture {i+1} ({picture_paths[i]}):")
     print("Hex Codes used:")
     for color in unique_colors:
         print(color)
+
+# Map all unique colors to .c## format and print
+print("All unique colors:")
+for i, color in enumerate(sorted(list(all_unique_colors))):
+    print(f".c{i:02d}{{fill:{color}}}")
