@@ -30,7 +30,8 @@ for i, pixels in enumerate(converter.pixel_data):
     for color in unique_colors:
         print(color)
 
-# Map all unique colors to .c## format and print
+# Map all unique colors to .c## format and concatenate
+unique_colors_str = "".join(f".c{i:02d}{{fill:{color}}}" for i, color in enumerate(sorted(list(all_unique_colors))))
+
 print("All unique colors:")
-for i, color in enumerate(sorted(list(all_unique_colors))):
-    print(f".c{i:02d}{{fill:{color}}}")
+print(unique_colors_str)
