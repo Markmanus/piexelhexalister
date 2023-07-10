@@ -2,7 +2,7 @@
 
 This is a Python tool that extracts unique hex color codes from pixel art images. The extracted colors are output in the format `.c##{fill:#xxxxxx}`, where `##` is a two-digit number and `xxxxxx` is the hex color code. If multiple images are processed, the color codes across all images are combined and presented.
 
-## Setup
+## Setup (python3)
 
 1. Clone the repository:
     ```bash
