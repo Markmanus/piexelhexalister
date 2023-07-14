@@ -31,7 +31,8 @@ for i, pixels in enumerate(converter.pixel_data):
         print(color)
 
 # Map all unique colors to .c## format and concatenate
-unique_colors_str = "".join(f".c{i:02d}{{fill:{color}}}" for i, color in enumerate(sorted(list(all_unique_colors))))
+unique_colors_str = "".join(f"\u001b[48;2;{int(color[1:3], 16)};{int(color[3:5], 16)};{int(color[5:], 16)}m  \u001b[0m" for color in sorted(list(all_unique_colors)))
 
 print("All unique colors:")
 print(unique_colors_str)
+
